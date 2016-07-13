@@ -1,1 +1,9 @@
 D:\repos\MatiAplikacja\MatiAplikacja\bin\Debug\MatiAplikacja.exe.config
+D:\repos\MatiAplikacja\MatiAplikacja\bin\Debug\MatiAplikacja.exe
+D:\repos\MatiAplikacja\MatiAplikacja\bin\Debug\MatiAplikacja.pdb
+D:\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.csprojResolveAssemblyReference.cache
+D:\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.MatiForm.resources
+D:\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.Properties.Resources.resources
+D:\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.csproj.GenerateResource.Cache
+D:\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.exe
+D:\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.pdb
