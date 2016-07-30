@@ -34,12 +34,13 @@
             this.textBoxTimeRemaining = new System.Windows.Forms.TextBox();
             this.buttonReset = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.buttonStop = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonStart
             // 
             this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonStart.Location = new System.Drawing.Point(75, 178);
+            this.buttonStart.Location = new System.Drawing.Point(31, 178);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(100, 50);
             this.buttonStart.TabIndex = 0;
@@ -50,7 +51,7 @@
             // progressBarTimeElapsed
             // 
             this.progressBarTimeElapsed.Location = new System.Drawing.Point(12, 116);
-            this.progressBarTimeElapsed.Maximum = 10000;
+            this.progressBarTimeElapsed.Maximum = 30;
             this.progressBarTimeElapsed.Name = "progressBarTimeElapsed";
             this.progressBarTimeElapsed.Size = new System.Drawing.Size(460, 23);
             this.progressBarTimeElapsed.Step = 1;
@@ -68,7 +69,7 @@
             // buttonReset
             // 
             this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonReset.Location = new System.Drawing.Point(315, 178);
+            this.buttonReset.Location = new System.Drawing.Point(346, 178);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(100, 50);
             this.buttonReset.TabIndex = 3;
@@ -80,11 +81,23 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // buttonStop
+            // 
+            this.buttonStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonStop.Location = new System.Drawing.Point(164, 178);
+            this.buttonStop.Name = "buttonStop";
+            this.buttonStop.Size = new System.Drawing.Size(100, 50);
+            this.buttonStop.TabIndex = 4;
+            this.buttonStop.Text = "STOP";
+            this.buttonStop.UseVisualStyleBackColor = true;
+            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
+            // 
             // MatiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 262);
+            this.Controls.Add(this.buttonStop);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.textBoxTimeRemaining);
             this.Controls.Add(this.progressBarTimeElapsed);
@@ -103,6 +116,7 @@
         private System.Windows.Forms.TextBox textBoxTimeRemaining;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button buttonStop;
     }
 }
 
