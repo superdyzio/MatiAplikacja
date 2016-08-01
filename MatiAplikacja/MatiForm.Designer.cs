@@ -104,6 +104,8 @@
             this.Controls.Add(this.buttonStart);
             this.Name = "MatiForm";
             this.Text = "Mati is the greatest!";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MatiForm_FormClosed);
+            this.Load += new System.EventHandler(this.MatiForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -108,5 +108,22 @@ namespace MatiAplikacja
             timer.Stop();
             setText(currentValue);
         }
+
+        private void MatiForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            string miliseconds = currentValue.ToString();
+            string exeFolder = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            System.IO.Directory.CreateDirectory(exeFolder + "\\MatiAplikacja_data");
+            System.IO.StreamWriter file = new System.IO.StreamWriter(exeFolder + "\\MatiAplikacja_data\\value.txt");
+
+            file.WriteLine(miliseconds);
+
+            file.Close();
+        }
+
+        private void MatiForm_Load(object sender, EventArgs e)
+        {
+            Console.WriteLine("Form wczytany");
+        }
     }
 }
