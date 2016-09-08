@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -124,19 +123,7 @@ namespace MatiAplikacja
 
         private void MatiForm_Load(object sender, EventArgs e)
         {
-            string path = Path.GetDirectoryName(Application.ExecutablePath) + "\\MatiAplikacja_data\\value.txt";
-            try
-            {   
-                using (StreamReader sr = new StreamReader(path))
-                {
-                    String line = sr.ReadToEnd();
-                    Console.WriteLine(line);
-                }
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
+            Console.WriteLine("Form wczytany");
         }
     }
 }

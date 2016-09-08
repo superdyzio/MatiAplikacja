@@ -7,12 +7,3 @@ D:\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.Properties.Resource
 D:\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.csproj.GenerateResource.Cache
 D:\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.exe
 D:\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.pdb
-D:\GDrive\Projekty\repos\MatiAplikacja\MatiAplikacja\bin\Debug\MatiAplikacja.exe.config
-D:\GDrive\Projekty\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.exe
-D:\GDrive\Projekty\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.pdb
-D:\GDrive\Projekty\repos\MatiAplikacja\MatiAplikacja\bin\Debug\MatiAplikacja.exe
-D:\GDrive\Projekty\repos\MatiAplikacja\MatiAplikacja\bin\Debug\MatiAplikacja.pdb
-D:\GDrive\Projekty\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.csprojResolveAssemblyReference.cache
-D:\GDrive\Projekty\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.MatiForm.resources
-D:\GDrive\Projekty\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.Properties.Resources.resources
-D:\GDrive\Projekty\repos\MatiAplikacja\MatiAplikacja\obj\Debug\MatiAplikacja.csproj.GenerateResource.Cache
