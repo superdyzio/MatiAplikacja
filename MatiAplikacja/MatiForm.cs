@@ -129,6 +129,7 @@ namespace MatiAplikacja
             {   
                 using (StreamReader sr = new StreamReader(path))
                 {
+                    Console.Write('heeheh');
                     String line = sr.ReadToEnd();
                     Console.WriteLine(line);
                 }
