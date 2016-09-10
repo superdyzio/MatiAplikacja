@@ -113,9 +113,9 @@ namespace MatiAplikacja
         private void MatiForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             string miliseconds = currentValue.ToString();
-            string exeFolder = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-            System.IO.Directory.CreateDirectory(exeFolder + "\\MatiAplikacja_data");
-            System.IO.StreamWriter file = new System.IO.StreamWriter(exeFolder + "\\MatiAplikacja_data\\value.txt");
+            string exeFolder = Path.GetDirectoryName(Application.ExecutablePath);
+            Directory.CreateDirectory(exeFolder + "\\MatiAplikacja_data");
+            StreamWriter file = new StreamWriter(exeFolder + "\\MatiAplikacja_data\\value.txt");
 
             file.WriteLine(miliseconds);
 
