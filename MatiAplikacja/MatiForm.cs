@@ -4,8 +4,12 @@ using System.Windows.Forms;
 
 namespace MatiAplikacja
 {
+    /// <summary>
+    /// Main form class.
+    /// </summary>
     public partial class MatiForm : Form
     {
+        // Countdown state variables and constants.
         private Boolean run;
         private Boolean finished;
         private int currentValue;
@@ -14,6 +18,17 @@ namespace MatiAplikacja
         private const int oneYearInSeconds = 31556926;
         private const int maxTime = oneYearInSeconds * 3 * timerFrequency;
 
+        // Dialog boxes messages (msg) and headers (h).
+        private const string msg_countdownFinished = "MATI MATI MATI MATI MATI MATI MATI!";
+        private const string msg_resetUnfinishedCountdown = "MATI MATI MATI?";
+        private const string msg_resetFinishedCountdown = "MATI MATI MATI MATI MATI MATI?";
+        private const string h_countdownFinished = "MAAAATIIIII!";
+        private const string h_resetUnfinishedCountdown = "MATI?";
+        private const string h_resetFinishedCountdown = "MATI?";
+
+        /// <summary>
+        /// Class constructor - initialize all variables, time not running.
+        /// </summary>
         public MatiForm()
         {
             InitializeComponent();
@@ -24,9 +39,14 @@ namespace MatiAplikacja
             run = false;
             finished = false;
             currentValue = maxTime;
-            setText(currentValue);
+            setText();
         }
 
+        /// <summary>
+        /// Timer tick event - decrements currentValue and updates view.
+        /// </summary>
+        /// <param name="sender">object which reported event</param>
+        /// <param name="e">event arguments</param>
         private void timer_Tick(object sender, EventArgs e)
         {
             if (run)
@@ -38,16 +58,19 @@ namespace MatiAplikacja
                     finished = true;
                 }
                 progressBarTimeElapsed.Value = currentValue;
-                setText(currentValue);
+                setText();
             }
             if (finished)
             {
                 timer.Stop();
-                MessageBox.Show("MATI MATI MATI MATI MATI MATI MATI!", "MAAAATIIIII!");
+                MessageBox.Show(msg_countdownFinished, h_countdownFinished);
             }
         }
 
-        private void setText(int currentValue)
+        /// <summary>
+        /// Method used to show remaining time in understandable form.
+        /// </summary>
+        private void setText()
         {
             double seconds = Math.Floor((double)currentValue / 10);
             double minutes = Math.Floor(seconds / 60);
@@ -61,23 +84,45 @@ namespace MatiAplikacja
             textBoxTimeRemaining.Text = days.ToString() + "d " + hours.ToString() + "h " + minutes.ToString() + "m " + seconds.ToString() + "s";
         }
 
+        /// <summary>
+        /// Handling START button click - start or continue countdown.
+        /// </summary>
+        /// <param name="sender">object which reported event</param>
+        /// <param name="e">event arguments</param>
         private void buttonStart_Click(object sender, EventArgs e)
         {
             if (!finished && !run)
             {
                 run = true;
                 timer.Start();
-                setText(currentValue);
+                setText();
             }
         }
 
+        /// <summary>
+        /// Handling STOP button click - pause countdown.
+        /// </summary>
+        /// <param name="sender">object which reported event</param>
+        /// <param name="e">event arguments</param>
+        private void buttonStop_Click(object sender, EventArgs e)
+        {
+            run = false;
+            timer.Stop();
+            setText();
+        }
+
+        /// <summary>
+        /// Handling RESET button click - return to initial state of countdown.
+        /// </summary>
+        /// <param name="sender">object which reported event</param>
+        /// <param name="e">event arguments</param>
         private void buttonReset_Click(object sender, EventArgs e)
         {
             run = false;
             timer.Stop();
             if (!finished)
             {
-                DialogResult result = MessageBox.Show("MATI MATI MATI?", "MATI?", MessageBoxButtons.OKCancel);
+                DialogResult result = MessageBox.Show(msg_resetUnfinishedCountdown, h_resetUnfinishedCountdown, MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
                     progressBarTimeElapsed.Value = maxTime;
@@ -86,23 +131,21 @@ namespace MatiAplikacja
             }
             else
             {
-                DialogResult result = MessageBox.Show("MATI MATI MATI MATI MATI MATI?", "MATI?", MessageBoxButtons.OKCancel);
+                DialogResult result = MessageBox.Show(msg_resetFinishedCountdown, h_resetFinishedCountdown, MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
                     progressBarTimeElapsed.Value = maxTime;
                     currentValue = maxTime;
                 }
             }
-            setText(currentValue);
+            setText();
         }
 
-        private void buttonStop_Click(object sender, EventArgs e)
-        {
-            run = false;
-            timer.Stop();
-            setText(currentValue);
-        }
-
+        /// <summary>
+        /// Closing form event - saving current countdown state to textfile.
+        /// </summary>
+        /// <param name="sender">object which reported event</param>
+        /// <param name="e">event arguments</param>
         private void MatiForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             string miliseconds = currentValue.ToString();
@@ -115,6 +158,11 @@ namespace MatiAplikacja
             file.Close();
         }
 
+        /// <summary>
+        /// Loaded form event -  loading countdown state from file or staying at initial state when process fails.
+        /// </summary>
+        /// <param name="sender">object which reported event</param>
+        /// <param name="e">event arguments</param>
         private void MatiForm_Load(object sender, EventArgs e)
         {
             string path = Path.GetDirectoryName(Application.ExecutablePath) + "\\MatiAplikacja_data\\value.txt";
@@ -123,7 +171,7 @@ namespace MatiAplikacja
                 using (StreamReader sr = new StreamReader(path))
                 {
                     currentValue = Int32.Parse(sr.ReadToEnd());
-                    setText(currentValue);
+                    setText();
                 }
             }
             catch (Exception exception)
