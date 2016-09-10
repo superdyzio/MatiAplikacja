@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MatiAplikacja
@@ -129,9 +122,8 @@ namespace MatiAplikacja
             {   
                 using (StreamReader sr = new StreamReader(path))
                 {
-                    Console.Write('heeheh');
-                    String line = sr.ReadToEnd();
-                    Console.WriteLine(line);
+                    currentValue = Int32.Parse(sr.ReadToEnd());
+                    setText(currentValue);
                 }
             }
             catch (Exception exception)
