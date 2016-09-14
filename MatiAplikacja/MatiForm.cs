@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Media;
 using System.Windows.Forms;
 
 namespace MatiAplikacja
@@ -63,6 +64,8 @@ namespace MatiAplikacja
             if (finished)
             {
                 timer.Stop();
+                SoundPlayer simpleSound = new SoundPlayer(Path.GetDirectoryName(Application.ExecutablePath) + "\\MatiAplikacja_data\\endOfCountdown.wav");
+                simpleSound.Play();
                 MessageBox.Show(msg_countdownFinished, h_countdownFinished);
             }
         }
@@ -148,6 +151,8 @@ namespace MatiAplikacja
         /// <param name="e">event arguments</param>
         private void MatiForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if (finished)
+                currentValue = maxTime;
             string miliseconds = currentValue.ToString();
             string exeFolder = Path.GetDirectoryName(Application.ExecutablePath);
             Directory.CreateDirectory(exeFolder + "\\MatiAplikacja_data");
@@ -167,11 +172,13 @@ namespace MatiAplikacja
         {
             string path = Path.GetDirectoryName(Application.ExecutablePath) + "\\MatiAplikacja_data\\value.txt";
             try
-            {   
+            {
                 using (StreamReader sr = new StreamReader(path))
                 {
                     currentValue = Int32.Parse(sr.ReadToEnd());
                     setText();
+                    progressBarTimeElapsed.Value = currentValue;
+                    sr.Close();
                 }
             }
             catch (Exception exception)
