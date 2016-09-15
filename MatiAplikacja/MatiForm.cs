@@ -64,8 +64,15 @@ namespace MatiAplikacja
             if (finished)
             {
                 timer.Stop();
-                SoundPlayer simpleSound = new SoundPlayer(Path.GetDirectoryName(Application.ExecutablePath) + "\\MatiAplikacja_data\\endOfCountdown.wav");
-                simpleSound.Play();
+                SoundPlayer endOfCountdownSound = new SoundPlayer(Path.GetDirectoryName(Application.ExecutablePath) + "\\MatiAplikacja_data\\endOfCountdown.wav");
+                try
+                {
+                    endOfCountdownSound.Play();
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
                 MessageBox.Show(msg_countdownFinished, h_countdownFinished);
             }
         }
@@ -75,7 +82,7 @@ namespace MatiAplikacja
         /// </summary>
         private void setText()
         {
-            double seconds = Math.Floor((double)currentValue / 10);
+            double seconds = Math.Floor((double)currentValue / timerFrequency);
             double minutes = Math.Floor(seconds / 60);
             double hours = Math.Floor(minutes / 60);
             double days = Math.Floor(hours / 24);
