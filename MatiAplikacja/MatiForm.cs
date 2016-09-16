@@ -20,12 +20,12 @@ namespace MatiAplikacja
         private const int maxTime = oneYearInSeconds * 3 * timerFrequency;
 
         // Dialog boxes messages (msg) and headers (h).
-        private const string msg_countdownFinished = "MATI MATI MATI MATI MATI MATI MATI!";
-        private const string msg_resetUnfinishedCountdown = "MATI MATI MATI?";
-        private const string msg_resetFinishedCountdown = "MATI MATI MATI MATI MATI MATI?";
-        private const string h_countdownFinished = "MAAAATIIIII!";
-        private const string h_resetUnfinishedCountdown = "MATI?";
-        private const string h_resetFinishedCountdown = "MATI?";
+        private const string msg_countdownFinished = "Your countdown has finished!";
+        private const string msg_resetUnfinishedCountdown = "Are you sure about restarting unfinished countdown?";
+        private const string msg_resetFinishedCountdown = "Do you want to restart the countdown?";
+        private const string h_countdownFinished = "Countdown ended!";
+        private const string h_resetUnfinishedCountdown = "Reset?";
+        private const string h_resetFinishedCountdown = "Start again?";
 
         /// <summary>
         /// Class constructor - initialize all variables, time not running.
@@ -146,6 +146,7 @@ namespace MatiAplikacja
                 {
                     progressBarTimeElapsed.Value = maxTime;
                     currentValue = maxTime;
+                    finished = false;
                 }
             }
             setText();
