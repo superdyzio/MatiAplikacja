@@ -146,6 +146,7 @@ namespace MatiAplikacja
                 {
                     progressBarTimeElapsed.Value = maxTime;
                     currentValue = maxTime;
+                    finished = false;
                 }
             }
             setText();
