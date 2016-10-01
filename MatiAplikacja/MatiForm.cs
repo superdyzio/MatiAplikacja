@@ -78,7 +78,7 @@ namespace MatiAplikacja
         }
 
         /// <summary>
-        /// Method used to show remaining time in understandable form.
+        /// Method used for showing remaining time in understandable form.
         /// </summary>
         private void setText()
         {
